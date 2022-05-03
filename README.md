@@ -1,4 +1,4 @@
-# News_app
+# The Daily News
 A flask application that displays latest news sources and articles by consuming the News API.
 
 ## By Jeff Huria
