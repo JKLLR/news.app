@@ -1,0 +1,13 @@
+.navbar {
+    padding: 10px;
+}
+
+.navbar-brand {
+    font-family: "Ubuntu";
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.nav-itm {
+    padding: 0 18px;
+}
