@@ -5,7 +5,7 @@ from app import app
 from models import Source,Articles
 
 @app.route("/")
-@main.route("/")
+@main.route('/', methods = ['GET', 'POST'])
 def index():
     """
     view root page function
