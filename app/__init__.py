@@ -1,21 +1,21 @@
 from flask import Flask
-from flask_bootstrap import Bootstrap
-
-#initialization of application
-from cconfig import DevConfig
-bootstrap = Bootstrap()
-
-#initialization of application
-
-app= Flask(__name__)
-app= Flask(__name__, instance_relative_config = True)
+from flask_bootstrap import Bootstrap, bootstrap_find_resource
+main = Blueprint('main', __name__)
+from . import views, errors
 
 
-#configuration set up
-app.config.from_object(DevConfig)
-app.config.from_pyfile('config.py')
+def create_app(config_name):
+   app = Flask(__name__)
+   # creating app configurations
+   app.config.from_object(config_options[config_name])
+   # Initializing flask extensions
+   bootstrap_find_resource.init_app(app)
+   # registering the blueprint
+   from . import main as main_blueprint
+   app.register_blueprint(main_blueprint)
 
-#initializing bootstrap extension
-bootstrap.init_app(app)
+   return app 
+   return app
 
-from app import views 
+
+   from . import views, errors
