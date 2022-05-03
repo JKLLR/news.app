@@ -20,8 +20,6 @@ def get_sources(category):
 
     get_sources_url = base_url.format(category, api_key)
 
-    print(get_sources_url)
-
     with urllib.request.urlopen(get_sources_url) as url:
        get_sources_data = url.read()
        get_sources_response = json.loads(get_sources_data)
@@ -56,3 +54,42 @@ def process_sources(sources_list):
 
 
     return source_results
+
+def get_article(id):
+
+    get_article_details_url = articles_url.format(id, api_key)
+
+    with urllib.request.urlopen(get_article_details_url) as url:
+        get_article_data = url.read()
+        get_articles_response = json.loads(get_article_data)
+
+        articles_results = None
+
+        if get_articles_response['articles']:
+            articles_results_list = get_articles_response['articles']
+            articles_results = process_articles(articles_results_list)
+    return articles_results
+
+
+def process_articles(articles_list):
+
+    articles_results = []
+
+    for article_item in articles_list:
+          id = article_item.get('id')
+          author = article_item.get('author')
+          title = article_item.get('title')
+          description = article_item.get('description')
+          url = article_item.get('url')
+          image = article_item.get('urlToImage')
+          date = article_item.get('publishedAt')
+
+
+    
+
+          if image:
+            articles_result = Articles(id, author, title, description, url, image, date)
+
+            articles_results.append(articles_result)
+
+    return articles_results

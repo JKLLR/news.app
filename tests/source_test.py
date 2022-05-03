@@ -1,16 +1,13 @@
 import unittest
-from app import app
-from  . import Source
 
 from  app.models import Source
 
 class SourceTest(unittest.TestCase):
 
     def setUp(self):
-        self.source = Source()
         self.new_source = Source('abc-news-au', 'ABC News (AU)', 'Australia most trusted source of local, national and world news. Comprehensive, independent, in-depth analysis, the latest business, sport, weather and more.', 'http://www.abc.net.au/news', 'general', 'au', 'en')
 
-
+    
     def test_instance(self):
         self.assertTrue(isinstance(self.new_source, Source))
 

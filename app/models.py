@@ -2,8 +2,8 @@ class Source:
     """
     Source class for defining source objects
     """
-    def __init__(self, id, name, description, url, category):
-
+    def __init__(self, id, name, description, url, category, country, language):
+        
         """
         instantiating object properties
         """
@@ -12,6 +12,8 @@ class Source:
         self.description=description
         self.url=url
         self.category = category
+        self.country = country
+        self.language= language
 
 
 
@@ -26,4 +28,4 @@ class Articles:
         self.description = description
         self.url = url
         self.image = image
-        self.date = date     
+        self.date = date        
