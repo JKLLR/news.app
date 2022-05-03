@@ -1,7 +1,7 @@
 from flask import Flask
 
 #initialization of application
-from config import DevConfig
+from cconfig import DevConfig
 
 #initialization of application
 
