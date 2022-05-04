@@ -13,7 +13,7 @@ def index():
     tech_sources = get_sources('technology')
     business_sources = get_sources('business')
     general_sources = get_sources('general')
-    title = 'News Flow'
+    title = 'The Daily News'
     return render_template('index.html', title = title, general = general_sources, business = business_sources, technology=tech_sources)
 
 
